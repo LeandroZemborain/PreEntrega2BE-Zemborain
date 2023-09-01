@@ -3,7 +3,6 @@ import { productModel } from "../db/models/products.model.js";
 class ProductsMongo {
   async findAll(obj) {
     const {limit,page,price,...query} = obj
-    console.log(query);
     try {
       const result = await productModel.paginate(
         query,

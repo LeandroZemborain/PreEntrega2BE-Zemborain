@@ -7,20 +7,20 @@ const router = Router();
  // Renderizará la vista API/VIEWS/ correspondiente al "Home" y pasará el listado de productos completo.
 router.get('/', async (req, res) => {
     try {
-        const products = await productManagerInstance.findAll();
+        const products = await productManagerInstance.findAll(req.query);
         res.render('home', { products });
     } catch (error) {
-        res.status(500).json({ error: 'Error al obtener listado de productos' });
+        res.status(500).json({ error: 'Error al obtener istado de productos' });
     }
 });
 
 //Renderizará la nueva ruta de PRODUCTS
 router.get('/products', async (req, res) => {
   try {
-      const products = await productManagerInstance.findAll();
+      const products = await productManagerInstance.findAll(req.query);
       res.render('products', { products });
   } catch (error) {
-      res.status(500).json({ error: 'Error al obtener listado de productos' });
+      res.status(500).json({ error: 'Error al otener listado de productos' });
   }
 });
 

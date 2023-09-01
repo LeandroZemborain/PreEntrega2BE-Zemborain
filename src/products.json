@@ -6,7 +6,8 @@
         "thumbnail": "nada",
         "code": "prod1",
         "stock": 10,
-        "category": "cat"
+        "category": "cat",
+        "status": true
     },
     {
         "title": "producto 2",
@@ -15,7 +16,8 @@
         "thumbnail": "nada",
         "code": "prod2",
         "stock": 20,
-        "category": "cat"
+        "category": "cat",
+        "status": true
     },
     {
         "title": "producto 3",
@@ -24,7 +26,8 @@
         "thumbnail": "nada",
         "code": "prod3",
         "stock": 30,
-        "category": "cat"
+        "category": "cat",
+        "status": true
     },
     {
         "title": "producto 4",
@@ -33,7 +36,8 @@
         "thumbnail": "nada",
         "code": "prod4",
         "stock": 40,
-        "category": "cat"
+        "category": "cat",
+        "status": true
     },
     {
         "title": "producto 5",
@@ -42,7 +46,8 @@
         "thumbnail": "nada",
         "code": "prod5",
         "stock": 10,
-        "category": "cat"
+        "category": "cat",
+        "status": true
     },
     {
         "title": "producto 6",
@@ -51,7 +56,8 @@
         "thumbnail": "nada",
         "code": "prod6",
         "stock": 20,
-        "category": "cat"
+        "category": "cat",
+        "status": true
     },
     {
         "title": "producto 7",
@@ -60,7 +66,8 @@
         "thumbnail": "nada",
         "code": "prod7",
         "stock": 30,
-        "category": "cat"
+        "category": "cat",
+        "status": true
     },
     {
         "title": "producto 8",
@@ -69,6 +76,7 @@
         "thumbnail": "nada",
         "code": "prod8",
         "stock": 40,
-        "category": "cat"
+        "category": "cat",
+        "status": true
     }
 ]

@@ -40,4 +40,4 @@ const productSchema = new mongoose.Schema({
  
 productSchema.plugin(mongoosePaginate)
 
-export const productModel = mongoose.model('product',productSchema)
+export const productModel = mongoose.model('products',productSchema)
