@@ -28,8 +28,12 @@ class ProductsMongo {
   }
   async createOne(obj) {
     try {
-      const newProduct = await productModel.create(obj)
-      return newProduct
+      const newProd = await productModel.create(obj)
+      return newProd
+      // const newProduct = new productModel(obj);
+      // await newProduct.save();
+      // console.log(newProduct);
+      // return newProduct;
     } catch (error) {
       return  error
     }
@@ -71,15 +75,15 @@ class ProductsMongo {
   //   }
   // }
 
-  async findOne(obj) {
-    try {
-      const product = await productModel.findOne(obj).explain('executionStats')
-      console.log(product)
-      return product
-    } catch (error) {
-      return error
-    }
-  }
+  // async findOne(obj) {
+  //   try {
+  //     const product = await productModel.findOne(obj).explain('executionStats')
+  //     console.log(product)
+  //     return product
+  //   } catch (error) {
+  //     return error
+  //   }
+  // }
 }
 
 export const productManagerInstance = new ProductsMongo()

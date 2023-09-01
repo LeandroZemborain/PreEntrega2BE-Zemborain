@@ -1,4 +1,3 @@
-//Router para manejar todos los endpoint asociados a los productos.
 import { Router } from "express";
 import { productManagerInstance } from '../managers/ProductsMongo.js';
 
@@ -19,8 +18,8 @@ router.get('/', async (req, res) => {
   }
 })
 
-router.get('/:id', async (req, res) => {
-  const { id } = req.params
+router.get('/:pid', async (req, res) => {
+  const { id } = req.params.pid
   try {
     const product = await productManagerInstance.findById(id)
     if (!product) {
@@ -40,7 +39,8 @@ router.post('/', async (req, res) => {
   }
   try {
     const newProduct = await productManagerInstance.createOne(req.body)
-    res.status(200).json({ message: 'User created', newProduct })
+    console.log(newProduct);
+    res.status(200).json({ message: 'New product', newProduct })
   } catch (error) {
     res.status(500).json({ error })
   }
@@ -48,16 +48,14 @@ router.post('/', async (req, res) => {
 
 
 
-// Endpoint PUT /api/products/:pid   (Actualizará un producto)
 router.put('/:pid', async (req, res) => {
-  const productId = req.params.pid; //Quitamos el parseInt para operar con los ID de Mongoose
+  const productId = req.params.pid; 
   const updatedFields = req.body; 
   await productManagerInstance.updateOne(productId, updatedFields);
   res.json({ message: 'Producto actualizado exitosamente' });
 });
 
 
-// Endpoint DELETE /api/products/:pid (Eliminará un producto Entregable 3)
 router.delete('/:pid', async (req, res) => {
   const productId = req.params.pid; 
   await productManagerInstance.deleteOne(productId);

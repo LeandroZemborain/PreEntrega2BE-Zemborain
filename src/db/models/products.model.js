@@ -22,7 +22,7 @@ const productSchema = new mongoose.Schema({
         unique:true
     },
     status:{
-        type:String,
+        type: Boolean,
         default:true
     },
     category:{
@@ -34,8 +34,10 @@ const productSchema = new mongoose.Schema({
     description:{
         type:String,
         required:true
-    }})
+    },
+})
 
  
-    productSchema.plugin(mongoosePaginate);
-export const productModel = mongoose.model('products',productSchema)
+productSchema.plugin(mongoosePaginate)
+
+export const productModel = mongoose.model('product',productSchema)
