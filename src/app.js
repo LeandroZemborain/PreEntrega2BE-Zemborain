@@ -8,6 +8,12 @@ import handlebars from 'express-handlebars'
 import { Server } from 'socket.io' 
 import '../src/db/dbConfig.js';
 import { Message } from '../src/db/models/messages.models.js';
+import cookieParser from 'cookie-parser'
+
+import usersRouter from './routes/users.router.js'
+import loginRouter from './routes/login.router.js'
+import session from 'express-session'
+import mongoStore from 'connect-mongo'
 
 
 //Configs EXPRESS
@@ -49,6 +55,23 @@ app.get('/chat', (req, res) => {
   res.render('chat', { messages: [] }); 
 });
 
+//cookies
+app.use(cookieParser('secreKeyCookies'))
+
+//sessions
+app.use(session({
+    store: new mongoStore({
+        mongoUrl: 'mongodb+srv://leozembo:leandro@cluster0.aa0c2zk.mongodb.net/ecommerce?retryWrites=true&w=majority'
+    }),
+    secret: 'secretSession',
+    cookie: {maxAge:60000},
+    resave: false,
+    saveUninitialized: false
+}))
+
+//routes login user
+app.use('/api/login',loginRouter)
+app.use('/api/users',usersRouter)
 
 //Declaración de puerto variable + llamado al puerto 
 const PORT = 8080

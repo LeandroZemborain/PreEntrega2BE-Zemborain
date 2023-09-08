@@ -1,6 +1,6 @@
 import { Router } from "express";
 import { productManagerInstance } from '../managers/ProductsMongo.js';
-
+import { cartsMongo } from "../managers/CartsMongo.js";
 
 const router = Router();
 
@@ -9,6 +9,7 @@ router.get('/', async (req, res) => {
     try {
         const products = await productManagerInstance.findAll(req.query);
         res.render('home', { products });
+        //console.log(products);
     } catch (error) {
         res.status(500).json({ error: 'Error al obtener istado de productos' });
     }
@@ -57,12 +58,15 @@ router.get('/realtimeproducts', async (req, res) => {
 router.get('/carts/:cid', async (req, res) => {
   const cartId = req.params.cid;
   try {
-    const cart = await cartManagerInstance.getPopulatedCartById(cartId);
+    const cart = await cartsMongo.getPopulatedCartById(cartId);
     res.render('carts', { products: cart.products });
   } catch (error) {
     res.status(500).json({ error: 'Error al obtener el carrito' });
   }
 });
+
+
+
   
 
 export default router;
